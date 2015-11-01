@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="1.0.0.1" author="Manish">
+
+                <comment>BUSINESS TABLES</comment>
+        <createTable tableName="B_USERS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="USERNAME" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="PASSWORD" type="VARCHAR(500)" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+        </createTable>
+
+        <createTable tableName="B_USER_PROFILE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="FNAME" type="VARCHAR(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="LNAME" type="VARCHAR(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="PAN" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="DOB" type="DATETIME">
+                <constraints nullable="false" />
+            </column>
+            <column name="MOBILE" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="IS_CLIENT" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="TITLE" type="VARCHAR(10)" />
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="B_ADDRESS_DETAILS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="ADDRESS" type="VARCHAR(100)" />
+            <column name="PINCODE" type="VARCHAR(10)" />
+            <column name="CITY" type="VARCHAR(20)" />
+            <column name="DISTIC" type="VARCHAR(20)" />
+            <column name="PHONE" type="VARCHAR(20)" />
+            <column name="FAX" type="VARCHAR(20)" />
+            <column name="EMAIL" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="B_NOMINEE_DETAILS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="FNAME" type="VARCHAR(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="LNAME" type="VARCHAR(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="PAN" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="DOB" type="DATETIME">
+                <constraints nullable="false" />
+            </column>
+            <column name="MOBILE" type="VARCHAR(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="TITLE" type="VARCHAR(10)" />
+            <column name="EMAIL" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+             <comment>MASTER TABLES</comment>
+        <!--<createTable tableName="M_USER_ROLES">
+            <column name="USER_ID" type="BIGINT" autoIncrement="true">
+                 <constraints primaryKey="true" />
+            </column>
+            <column name="ROLE" type="VARCHAR(30)" />
+        </createTable>-->
+
+        <createTable tableName="M_INVESTMENT_TYPE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="INVESTMENT_CD" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INVESTMENT_NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="INVESTMENT_CD" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INVESTMENT_NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_BANK_NAME">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="BANK_NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BANK_CD" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <!--<column name="MICR_NUMBER" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>-->
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_DEPOSITE_TYPE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="DEPOSITE_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPOSITE_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_DEPOSITING_COMPANY">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="DEPOSITE_COMPANY_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPOSITE_COMPANY_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_MUTUAL_FUND_OPTION">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="MUTUAL_FUND_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MUTUAL_FUND_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_MUTUAL_FUND_SUB_OPTION">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="MUTUAL_FUND_SUB_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MUTUAL_FUND_SUB_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_AMC">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="AMC_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMC_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_FUND_NAME">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="FUND_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FUND_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+        <createTable tableName="M_PAYMENT_MODE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="PAYMENT_CD" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PAYMENT_NAME" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+            <column name="ACTIVE" type="boolean" defaultValueBoolean="true"/>
+        </createTable>
+
+
+        <comment>------------------------------Trasaction Tables----------------------------------</comment>
+
+
+        <createTable tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="INVESTMENT_DATE" type="DATETIME" />
+            <column name="FOLIO_NUMBER" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CHEQUE_NUMBER" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INVESTMENT_AMOUNT" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SIP_END_YEAR" type="varchar(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SIP_END_MONTH" type="varchar(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SIP_END_DATE" type="varchar(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACCOUNT_NUMBER" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MICR_NUMBER" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_DTTM" type="DATETIME" />
+            <column name="LAST_UPD_DTTM" type="DATETIME" />
+            <column name="VERSION" type="BIGINT" />
+        </createTable>
+
+
+
+        <comment>------------------------------Adding FK Reference Columns----------------------------------</comment>
+        <addColumn tableName="B_USER_PROFILE">
+            <column name="CLIENT_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_C_UP_US_P0" references="B_USERS(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="B_NOMINEE_DETAILS">
+            <column name="PROFILE_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_P_ND_UP_P0" references="B_USER_PROFILE(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="B_ADDRESS_DETAILS">
+            <column name="PROFILE_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_P_AD_UP_P0" references="B_USER_PROFILE(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="INVESTOR_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_I_FD_UP_P0" references="B_USER_PROFILE(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="AMC_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_A_FD_AMC_P0" references="M_AMC(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="MUTUAL_FUND_OPTION_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_MFO_FD_MFO_P0" references="M_MUTUAL_FUND_OPTION(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="MUTUAL_FUND_SUB_OPTION_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_MFOS_FD_MFSO_P0" references="M_MUTUAL_FUND_SUB_OPTION(ID)" />
+            </column>
+        </addColumn>
+        <addColumn tableName="T_MUTUAL_FUND_DETAIL">
+            <column name="BANK_ID" type="BIGINT">
+                <constraints foreignKeyName="FK_B_FD_BN_P0" references="M_BANK_NAME(ID)" />
+            </column>
+        </addColumn>
+
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.investment.pro</groupId>
+    <artifactId>FundBazar</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+   <!-- <url>http://investmentpro.in</url>-->
+
+    <name>FundBazar</name>
+    <description>Fund Bazard API Engine</description>
+
+    <properties>
+        <!-- Encoding Settings -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Version for various dependencies -->
+        <version.dropwizard>0.6.2</version.dropwizard>
+        <version.jersey>1.17.1</version.jersey>
+        <version.guice>3.0</version.guice>
+        <version.commons.lang>2.6</version.commons.lang>
+        <version.commons.pool>1.6</version.commons.pool>
+        <version.commons.email>1.3.1</version.commons.email>
+        <version.commons.beanutils>1.8.3</version.commons.beanutils>
+        <version.jasypt>1.9.1</version.jasypt>
+    </properties>
+
+    <dependencies>
+        <!-- Dropwizard Dependencies -->
+        <!-- Dependencies -->
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-migrations</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-hibernate</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-client</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hubspot.dropwizard</groupId>
+            <artifactId>dropwizard-guice</artifactId>
+            <version>${version.dropwizard}</version>
+        </dependency>
+        <!-- Apache Commons  -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${version.commons.lang}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>${version.commons.pool}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>${version.commons.email}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${version.commons.beanutils}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wordnik</groupId>
+            <artifactId>swagger-core_2.10</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wordnik</groupId>
+            <artifactId>swagger-jaxrs_2.10</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.3.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+       <!-- <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>8.1.10.v20130312</version>
+            <scope>test</scope>
+        </dependency>-->
+        <!-- Jasypt -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>${version.jasypt}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-multibindings</artifactId>
+            <version>${version.guice}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-assistedinject</artifactId>
+            <version>${version.guice}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.google.code.guice-repository</groupId>
+            <artifactId>guice-repository</artifactId>
+            <version>2.1.0</version>
+        </dependency>-->
+
+
+    </dependencies>
+
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <config.file.name>dev-pro.yml</config.file.name>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>5.1.34</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+    <!--<build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.0.5</version>
+                <configuration>
+                    <propertyFile>src/application/test/liquibase.properties</propertyFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-test</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>-->
+
+</project>

@@ -1,0 +1,43 @@
+http:
+  rootPath: /api/*
+  gzip:
+    enabled: true
+    minimumEntitySize: 256 bytes
+    bufferSize: 8KiB
+
+databaseInvestPro:
+  driverClass: com.mysql.jdbc.Driver
+  user: dev
+  password: password
+  url: jdbc:mysql://localhost:3306/investPro
+  properties:
+    charSet: UTF-8
+    hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+   # hibernate.hbm2ddl.auto: create
+    hibernate.show_sql: true
+
+
+
+#server:
+ # applicationConnectors:
+ #   - type: http
+  #    port: 6060
+  #adminConnectors:
+   # - type: http
+    #  port: 6061
+
+
+logging:
+  level: INFO
+  #appenders:
+ #   - type: console
+
+    # Log info, warnings and errors to our apps' application log.
+        # Rolled over daily and retained for 5 days.
+    #    - type: file
+    #     threshold: DEBUG
+    #     currentLogFilename: ./logs/example.log
+    #     archivedLogFilenamePattern: ./logs/example-%d.log.gz
+    #      archivedFileCount: 5
+    # The timezone used to format dates. HINT: USE THE DEFAULT, UTC.
+    #  timeZone: UTC

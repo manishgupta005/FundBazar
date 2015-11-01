@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="data.investmentType.0" author="Manish" context="prod">
+        <comment>Adding INVESTMENT TYPE Data</comment>
+        <insert tableName="M_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="FD"/>
+            <column name="INVESTMENT_NAME" value="FIXED DEPOSITE"/>
+        </insert>
+        <insert tableName="M_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="MF"/>
+            <column name="INVESTMENT_NAME" value="MUTUAL FUND"/>
+        </insert>
+        <insert tableName="M_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="LIC"/>
+            <column name="INVESTMENT_NAME" value="LIFE INSURANCE"/>
+        </insert>
+
+        <comment>Adding SUB INVESTMENT TYPE Data</comment>
+        <insert tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="LS"/>
+            <column name="INVESTMENT_NAME" value="LUMP SUM"/>
+        </insert>
+        <insert tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="WSIP"/>
+            <column name="INVESTMENT_NAME" value="WEEKLY SIP"/>
+        </insert>
+        <insert tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="FSIP"/>
+            <column name="INVESTMENT_NAME" value="FORT NIGHTLY SIP"/>
+        </insert>
+        <insert tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="MSIP"/>
+            <column name="INVESTMENT_NAME" value="MONTHLY SIP"/>
+        </insert>
+        <insert tableName="M_SUB_INVESTMENT_TYPE">
+            <column name="INVESTMENT_CD" value="QSIP"/>
+            <column name="INVESTMENT_NAME" value="QUATERLY SIP"/>
+        </insert>
+
+        <comment>Adding M_DEPOSITE_TYPE Data</comment>
+        <insert tableName="M_DEPOSITE_TYPE">
+            <column name="DEPOSITE_CD" value="CUM"/>
+            <column name="DEPOSITE_NAME" value="CUMMULATIVE"/>
+        </insert>
+        <insert tableName="M_DEPOSITE_TYPE">
+            <column name="DEPOSITE_CD" value="MI"/>
+            <column name="DEPOSITE_NAME" value="MONTHLY INTEREST"/>
+        </insert>
+        <insert tableName="M_DEPOSITE_TYPE">
+            <column name="DEPOSITE_CD" value="QI"/>
+            <column name="DEPOSITE_NAME" value="QUATERLY INTEREST"/>
+        </insert>
+        <insert tableName="M_DEPOSITE_TYPE">
+            <column name="DEPOSITE_CD" value="YI"/>
+            <column name="DEPOSITE_NAME" value="YEARLY INTEREST"/>
+        </insert>
+
+        <comment>Adding M_MUTUAL_FUND_OPTION Data</comment>
+        <insert tableName="M_MUTUAL_FUND_OPTION">
+            <column name="MUTUAL_FUND_CD" value="GRTH"/>
+            <column name="MUTUAL_FUND_NAME" value="GROWTH"/>
+        </insert>
+        <insert tableName="M_MUTUAL_FUND_OPTION">
+            <column name="MUTUAL_FUND_CD" value="DIVD"/>
+            <column name="MUTUAL_FUND_NAME" value="DIVIDEND"/>
+        </insert>
+        <insert tableName="M_MUTUAL_FUND_OPTION">
+            <column name="MUTUAL_FUND_CD" value="PAYO"/>
+            <column name="MUTUAL_FUND_NAME" value="PAYOUT"/>
+        </insert>
+        <insert tableName="M_MUTUAL_FUND_OPTION">
+            <column name="MUTUAL_FUND_CD" value="DIVDRIT"/>
+            <column name="MUTUAL_FUND_NAME" value="DIVIDEND REINVESTMENT"/>
+        </insert>
+
+        <comment>Adding M_MUTUAL_FUND_SUB_OPTION Data</comment>
+        <insert tableName="M_MUTUAL_FUND_SUB_OPTION">
+            <column name="MUTUAL_FUND_SUB_CD" value="RIT"/>
+            <column name="MUTUAL_FUND_SUB_NAME" value="REINVESTMENT"/>
+        </insert>
+        <insert tableName="M_MUTUAL_FUND_SUB_OPTION">
+            <column name="MUTUAL_FUND_SUB_CD" value="PAYO"/>
+            <column name="MUTUAL_FUND_SUB_NAME" value="PAYOUT"/>
+        </insert>
+        <insert tableName="M_MUTUAL_FUND_SUB_OPTION">
+            <column name="MUTUAL_FUND_SUB_CD" value="NA"/>
+            <column name="MUTUAL_FUND_SUB_NAME" value="NA"/>
+        </insert>
+
+
+       <!-- <comment>Adding M_USER_ROLES Data</comment>
+        <insert tableName="M_USER_ROLES">
+            <column name="ROLE" value="ADMIN"/>
+        </insert>
+        <insert tableName="M_USER_ROLES">
+            <column name="ROLE" value="INVESTOR"/>
+        </insert>
+        <insert tableName="M_USER_ROLES">
+            <column name="ROLE" value="SUPER ADMIN"/>
+        </insert>-->
+
+        <comment>Adding M_PAYMENT_MODE Data</comment>
+        <insert tableName="M_PAYMENT_MODE">
+            <column name="PAYMENT_CD" value="CHQ"/>
+            <column name="PAYMENT_NAME" value="CHEQUE"/>
+        </insert>
+        <insert tableName="M_PAYMENT_MODE">
+            <column name="PAYMENT_CD" value="DD"/>
+            <column name="PAYMENT_NAME" value="DEMAND DRAFT"/>
+        </insert>
+        <insert tableName="M_PAYMENT_MODE">
+            <column name="PAYMENT_CD" value="RTGS"/>
+            <column name="PAYMENT_NAME" value="RTGS"/>
+        </insert>
+
+
+    </changeSet>
+
+
+
+</databaseChangeLog>
